@@ -8,7 +8,6 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 /**
  * @type {import('webpack').Configuration}
  */
-
 module.exports = {
   target: 'web',
   entry: {
