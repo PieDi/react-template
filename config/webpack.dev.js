@@ -3,7 +3,6 @@ const baseConfig = require('./webpack.base')
 const webpack = require('webpack');//引入webpack 
 const portfinder = require('portfinder');
 
-// const path = require('path')
 /**
  * @type {import('webpack').WebpackOptionsNormalized}
  */
@@ -38,7 +37,6 @@ const devConfig = webpackMerge.merge(baseConfig, {
 module.exports = new Promise((resolve, reject) => {
   //查找端口号
   portfinder.getPort((err, port) => {
-
     if (err) {
       reject(err);
       return;
@@ -47,6 +45,5 @@ module.exports = new Promise((resolve, reject) => {
     devConfig.devServer.port = process.env.PORT = port;
     resolve(devConfig);
   });
-
 });
 

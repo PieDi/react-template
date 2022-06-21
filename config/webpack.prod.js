@@ -13,12 +13,7 @@ const prodConfig = {
       config: [__filename], //使用文件缓存
     },
   },
-  plugins: [
-    new MiniCssExtractPlugin({
-      filename: '[name].[contenthash:8].css',
-      chunkFilename: '[id].[contenthash:8].css',
-    }),
-  ],
+  plugins: [],
   optimization: {
     minimize: true,
     moduleIds: "deterministic",

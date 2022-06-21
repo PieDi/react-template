@@ -4,12 +4,10 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const getCSSModuleLocalIdent = require('react-dev-utils/getCSSModuleLocalIdent');
 
-
 /**
  * @type {import('webpack').Configuration}
  */
 const isDev = process.env.NODE_ENV === 'development'
-console.log(23222, isDev)
 module.exports = {
   target: 'web',
   entry: {
@@ -17,12 +15,15 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, '../dist'),
-    filename: '[name].[hash].js',
+    filename: '[name].[contenthash].js',
   },
   module: {
     rules: [
-      { test: /\.(js|jsx)$/, loader: 'babel-loader', exclude: /node_modules/ },
-      { test: /\.(ts|tsx)$/, loader: 'ts-loader', exclude: /node_modules/ },
+      {
+        test: /\.(ts|tsx)$/,
+        exclude: /node_modules/,
+        use: ["babel-loader", "ts-loader"],
+      },
       {
         test: /\.(css|less)$/,
         exclude: /\.module\.scss$/,
@@ -62,6 +63,10 @@ module.exports = {
       filename: 'index.html',
     }),
     new CleanWebpackPlugin(),
+    new MiniCssExtractPlugin({
+      filename: '[name].[contenthash:8].css',
+      chunkFilename: '[id].[contenthash:8].css',
+    }),
   ],
   cache: {
     type: 'filesystem',
