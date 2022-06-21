@@ -1,0 +1,7 @@
+@import-normalize;
+@import './var.scss';
+div {
+  color: $pink;
+  width: 200px;
+  @include ellipsis;
+}
