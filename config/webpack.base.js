@@ -1,13 +1,15 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const getCSSModuleLocalIdent = require('react-dev-utils/getCSSModuleLocalIdent')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const getCSSModuleLocalIdent = require('react-dev-utils/getCSSModuleLocalIdent');
 
 
 /**
  * @type {import('webpack').Configuration}
  */
+const isDev = process.env.NODE_ENV === 'development'
+console.log(23222, isDev)
 module.exports = {
   target: 'web',
   entry: {
@@ -22,29 +24,27 @@ module.exports = {
       { test: /\.(js|jsx)$/, loader: 'babel-loader', exclude: /node_modules/ },
       { test: /\.(ts|tsx)$/, loader: 'ts-loader', exclude: /node_modules/ },
       {
-        test: /\.(css|scss)$/,
+        test: /\.(css|less)$/,
         exclude: /\.module\.scss$/,
-        use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader'],
-      },
-      {
-        test: /\.less$/,
-        use: ["style-loader", "css-loader", "less-loader"]
-      },
-      {
-        test: /\.scss$/,
-        use: [
-          'style-loader',
-          {
-            loader: 'css-loader',
-            options: {
-              modules: {
-                getLocalIdent: getCSSModuleLocalIdent,
-              },
+        use: [isDev ? require.resolve('style-loader') : MiniCssExtractPlugin.loader,
+        {
+          loader: 'css-loader',
+          options: {
+            importLoaders: 1,
+            modules: {
+              getLocalIdent: getCSSModuleLocalIdent,
             },
           },
-          'postcss-loader',
-          'sass-loader',
-        ],
+        }, {
+          loader: 'postcss-loader',
+          options: {
+            postcssOptions: {
+              plugins: [
+                require('postcss-preset-env')()
+              ],
+            },
+          }
+        }, "less-loader"],
       },
       {
         test: /\.(jpe?g|png|gif|svg|woff|woff2|eot|ttf|otf)$/i,
@@ -62,9 +62,6 @@ module.exports = {
       filename: 'index.html',
     }),
     new CleanWebpackPlugin(),
-    new MiniCssExtractPlugin({
-      filename: 'css/[name].[hash].css',
-    })
   ],
   cache: {
     type: 'filesystem',
