@@ -41,7 +41,8 @@ module.exports = {
           options: {
             postcssOptions: {
               plugins: [
-                require('postcss-preset-env')()
+                require('postcss-preset-env')(),
+                require('autoprefixer')()
               ],
             },
           }
@@ -68,12 +69,11 @@ module.exports = {
       chunkFilename: '[id].[contenthash:8].css',
     }),
   ],
-  cache: {
-    type: 'filesystem',
-    // 可选配置
-    buildDependencies: {
-      config: [__filename], // 当构建依赖的config文件（通过 require 依赖）内容发生变化时，缓存失效
-    },
-    name: 'development-cache',
-  },
+  // cache: {
+  //   type: 'filesystem',
+  //   // 可选配置
+  //   buildDependencies: {
+  //     config: [__filename], // 当构建依赖的config文件（通过 require 依赖）内容发生变化时，缓存失效
+  //   },
+  // },
 }

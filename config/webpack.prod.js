@@ -17,6 +17,9 @@ const prodConfig = {
   optimization: {
     minimize: true,
     moduleIds: "deterministic",
+    splitChunks: {
+      chunks: 'all'
+    }
   },
 }
 

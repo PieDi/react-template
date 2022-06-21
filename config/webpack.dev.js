@@ -1,3 +1,4 @@
+const path = require('path')
 const webpackMerge = require('webpack-merge')
 const baseConfig = require('./webpack.base')
 const webpack = require('webpack');//引入webpack 
@@ -30,7 +31,13 @@ const devConfig = webpackMerge.merge(baseConfig, {
   devServer: devServer,
   devtool: 'source-map',
   plugins: [//配置插件的节点
-    new webpack.HotModuleReplacementPlugin() //new 一个热更新的模块对象
+    new webpack.HotModuleReplacementPlugin(), //new 一个热更新的模块对象
+    new webpack.SourceMapDevToolPlugin({
+      exclude: /node_modules/,
+      filename: 'sourcemaps/[file].map',
+      module: true,
+      columns: false
+    })
   ]
 })
 
