@@ -36,7 +36,7 @@ const devConfig = webpackMerge.merge(baseConfig, {
       exclude: /node_modules/,
       filename: 'sourcemaps/[file].map',
       module: true,
-      columns: false
+      columns: true
     })
   ]
 })

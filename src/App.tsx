@@ -1,8 +1,9 @@
-import React from 'react'
-import BaseLayout from './conponents/base.layout'
-import './style/normalize.css'
-const App = () => {
-  return <BaseLayout></BaseLayout>
+import React from 'react';
+import BaseLayout from './components/baseLayout';
+import './static/style/normalize.css';
+
+function App() {
+  return <BaseLayout />;
 }
 
-export default App
+export default App;

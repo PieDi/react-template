@@ -1,6 +1,6 @@
 const webpackMerge = require('webpack-merge')
 const baseConfig = require('./webpack.base')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+// const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 /**
  * @type {import('webpack').WebpackOptionsNormalized}
