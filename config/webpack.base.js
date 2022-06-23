@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const getCSSModuleLocalIdent = require('react-dev-utils/getCSSModuleLocalIdent');
+const postcssPresetEnv = require('postcss-preset-env');
 
 /**
  * @type {import('webpack').Configuration}
@@ -32,7 +33,6 @@ module.exports = {
       },
       {
         test: /\.(css|less)$/,
-        exclude: /\.module\.scss$/,
         use: [
           isDev ? require.resolve('style-loader') : MiniCssExtractPlugin.loader,
           {
@@ -51,7 +51,7 @@ module.exports = {
               sourceMap: true,
               postcssOptions: {
                 plugins: [
-                  require('postcss-preset-env')({
+                  postcssPresetEnv({
                     browsers: 'last 2 versions',
                   }),
                 ],

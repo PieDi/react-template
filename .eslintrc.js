@@ -19,6 +19,7 @@ module.exports = {
   plugins: [
     'react',
     '@typescript-eslint',
+    'html',
   ],
   rules: {
     indent: ['off', 2],
@@ -54,5 +55,6 @@ module.exports = {
         moduleDirectory: ['node_modules', 'src/'],
       },
     },
+    'html/html-extensions': ['.html', '.we'],
   },
 };

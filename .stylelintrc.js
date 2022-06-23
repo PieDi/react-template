@@ -1,8 +1,21 @@
 module.exports = {
+  "customSyntax": "postcss-less",
   "extends": [
     "stylelint-config-standard",
   ],
-  "plugins": [],
+  "plugins": [
+    'stylelint-order'
+  ],
+  "ignoreFiles": [
+    'node_modules/**/*',
+    'public/**/*',
+    'dist/**/*',
+    'build/**/*',
+    '**/*.js',
+    '**/*.jsx',
+    '**/*.ts',
+    '**/*.tsx'
+  ],
   "rules": {
     // 类选择器的命名规则
     "selector-class-pattern": ".",
@@ -128,5 +141,12 @@ module.exports = {
       "resize",
       "transition"
     ],
-  }
+  },
+  // "overrides": [
+  //   // 若项目中存在less文件，添加以下配置
+  //   {
+  //     files: '**/*.less',
+  //     customSyntax: 'postcss-less',
+  //   },
+  // ]
 }

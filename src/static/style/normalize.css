@@ -38,8 +38,8 @@ main {
  */
 
 h1 {
-  font-size: 2em;
   margin: .67em 0;
+  font-size: 2em;
 }
 
 /* Grouping content
@@ -51,9 +51,9 @@ h1 {
  */
 
 hr {
-  box-sizing: content-box; /* 1 */
-  height: 0; /* 1 */
   overflow: visible; /* 2 */
+  height: 0; /* 1 */
+  box-sizing: content-box; /* 1 */
 }
 
 /**
@@ -62,8 +62,8 @@ hr {
  */
 
 pre {
-  font-family: monospace, monospace; /* 1 */
   font-size: 1em; /* 2 */
+  font-family: monospace; /* 1 */
 }
 
 /* Text-level semantics
@@ -84,7 +84,6 @@ a {
 
 abbr[title] {
   border-bottom: none; /* 1 */
-  text-decoration: underline; /* 2 */
   text-decoration: underline dotted; /* 2 */
 }
 
@@ -105,8 +104,8 @@ strong {
 code,
 kbd,
 samp {
-  font-family: monospace, monospace; /* 1 */
   font-size: 1em; /* 2 */
+  font-family: monospace; /* 1 */
 }
 
 /**
@@ -124,9 +123,9 @@ small {
 
 sub,
 sup {
+  position: relative;
   font-size: 75%;
   line-height: 0;
-  position: relative;
   vertical-align: baseline;
 }
 
@@ -162,10 +161,10 @@ input,
 optgroup,
 select,
 textarea {
-  font-family: inherit; /* 1 */
-  font-size: 100%; /* 1 */
-  line-height: 1.15; /* 1 */
   margin: 0; /* 2 */
+  font-size: 100%; /* 1 */
+  font-family: inherit; /* 1 */
+  line-height: 1.15; /* 1 */
 }
 
 /**
@@ -238,12 +237,12 @@ fieldset {
  */
 
 legend {
-  box-sizing: border-box; /* 1 */
-  color: inherit; /* 2 */
   display: table; /* 1 */
-  max-width: 100%; /* 1 */
   padding: 0; /* 3 */
+  max-width: 100%; /* 1 */
   white-space: normal; /* 1 */
+  color: inherit; /* 2 */
+  box-sizing: border-box; /* 1 */
 }
 
 /**

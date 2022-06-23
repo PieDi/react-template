@@ -45,7 +45,6 @@ const devConfig = webpackMerge.merge(baseConfig, {
       files: '**/*.less',
       failOnError: false,
       quiet: true,
-      syntax: 'less',
     }),
   ],
 });
