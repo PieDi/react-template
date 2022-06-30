@@ -30,7 +30,7 @@ const devServer = {
 const devConfig = webpackMerge.merge(baseConfig, {
   mode: 'development',
   devServer,
-  devtool: 'source-map',
+  devtool: false,
   plugins: [// 配置插件的节点
     new webpack.HotModuleReplacementPlugin(), // new 一个热更新的模块对象
     new webpack.SourceMapDevToolPlugin({
@@ -43,7 +43,7 @@ const devConfig = webpackMerge.merge(baseConfig, {
       context: 'src',
       configFile: path.resolve(process.cwd(), './.stylelintrc.js'), // 指定 stylelint 配置的文件
       files: '**/*.less',
-      failOnError: false,
+      fix: true,
       quiet: true,
     }),
   ],
@@ -57,7 +57,7 @@ module.exports = new Promise((resolve, reject) => {
       return;
     }
     // 端口被占用时就重新设置evn和devServer的端口
-    devConfig.devServer.port = process.env.PORT = port;
+    devConfig.devServer.port = port;
     resolve(devConfig);
   });
 });

@@ -2,7 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const getCSSModuleLocalIdent = require('react-dev-utils/getCSSModuleLocalIdent');
+// const getCSSModuleLocalIdent = require('react-dev-utils/getCSSModuleLocalIdent');
 const postcssPresetEnv = require('postcss-preset-env');
 
 /**
@@ -17,6 +17,7 @@ module.exports = {
   output: {
     path: path.resolve(process.cwd(), './dist'),
     filename: '[name].[contenthash].js',
+    publicPath: '/',
   },
   module: {
     rules: [
@@ -41,7 +42,9 @@ module.exports = {
               importLoaders: 1,
               sourceMap: !!isDev,
               modules: {
-                getLocalIdent: getCSSModuleLocalIdent,
+                auto: true,
+                localIdentName: '[local]--[hash:base64:5]',
+                // getLocalIdent: getCSSModuleLocalIdent,
               },
             },
           },

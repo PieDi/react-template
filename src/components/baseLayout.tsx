@@ -1,9 +1,19 @@
+import Skeleton from './skeleton';
 import style from './index.module.less';
 
-function BaseLayout() {
-console.log('123456789'.replace(/^-?\d+(,\d{3})*(\.\d{1,2})?$/, ','));
-  return (
-    <div className={style.base_layout}>base收拾收飒飒拾</div>
-  );
-}
+const BaseLayout = () => (
+  <div className={style.base_layout}>
+    <Skeleton isVisible>
+      <div className={style.content}>
+        <div className={style.item}>sssss</div>
+        <div>sssss</div>
+      </div>
+
+      <div>
+        <div>sssss</div>
+        <div>sssss</div>
+      </div>
+    </Skeleton>
+  </div>
+);
 export default BaseLayout;

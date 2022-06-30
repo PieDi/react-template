@@ -1,0 +1,47 @@
+.skeleton-container {
+  overflow: hidden;
+  color: #F1EFEF !important;
+  background-color: #F1EFEF !important;
+}
+
+.skeleton-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 3px;
+  width: 100%;
+  min-width: 20px;
+  height: 100%;
+  min-height: 20px;
+  font-size: 5px;
+  color: #EBE7E7 !important;
+  background-color: #EBE7E7 !important;
+
+  &::after {
+    position: absolute;
+    top: 0;
+    z-index: 10;
+    width: 80%;
+    height: 100%;
+    background:
+      linear-gradient(
+        to left,
+        rgb(235 231 231),
+        #FFFFFF,
+        rgb(235 231 231)
+      )
+      0 0 no-repeat;
+    opacity: .2;
+    content: '';
+    animation: skeleton-move 2s infinite;
+  }
+}
+
+@keyframes skeleton-move {
+  0% {
+    left: -200%;
+  }
+
+  100% {
+    left: 200%;
+  }
+}
