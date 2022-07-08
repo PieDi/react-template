@@ -23,6 +23,7 @@ module.exports = {
   ],
   rules: {
     indent: ['error', 2],
+    'no-unused-expressions': 'off',
     'react/prop-types': 'off',
     'react/react-in-jsx-scope': 'off',
     'react/jsx-filename-extension': 'off',
