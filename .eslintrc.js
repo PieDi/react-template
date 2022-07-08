@@ -47,6 +47,7 @@ module.exports = {
       },
     ],
     'react/jsx-props-no-spreading': 'off',
+    'max-classes-per-file': ['error', 5],
   },
   settings: {
     'import/extensions': ['.js', '.jsx', '.ts', '.tsx'],
