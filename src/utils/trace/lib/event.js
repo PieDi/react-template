@@ -220,10 +220,9 @@ function traceCustomEvent(eventId, title, params = {}) {
 function clickCollection() {
   document.addEventListener('click', (e) => { // 点击事件
     const config = new RequestTemplateClick({ eventType: 'click' });
-    debug('caught click event: ', e);
     let { path } = e;
     if (path === undefined) path = e.target ? getNodePath(e.target) : []; // 获取被点击的元素到最外层元素组成的数组
-
+    debug('caught click event path: ', path);
     // 检查被点击的元素以及其父级元素是否有这些属性(从内到外,只会取第一个检查到的)
     const target = path.find((el) => el.hasAttribute && (el.hasAttribute('data-warden-container')
       || el.hasAttribute('data-warden-event-id')
@@ -251,12 +250,14 @@ function clickCollection() {
  */
 function dwellCollector(eventUnload) {
   const config = new RequestTemplate({ eventType: 'dwell' });
+  console.log(44444, config, eventUnload);
   window.addEventListener('load', () => { // 加载完成事件
     config.entryTime = Date.now();
   }, true);
 
   if (!eventUnload) return;
   window.addEventListener('beforeunload', () => { // 卸载事件
+    console.log('2222 卸载事件');
     config.eventId = uuid();
     config.url = window.location.href; // 当前页面 url
     config.referer = document.referrer; // 上级页面 url(从哪个页面跳过来的就是上级页面)
@@ -275,6 +276,7 @@ function dwellCollector(eventUnload) {
 }
 function init({ eventCore, eventUnload }) {
   if (!eventCore && !eventUnload) return;
+  console.log(44444, eventCore);
 
   if (eventCore) clickCollection();
   dwellCollector(eventUnload);

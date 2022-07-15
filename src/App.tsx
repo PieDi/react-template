@@ -12,7 +12,7 @@ const App = () => {
     error: true,
   });
 
-  console.log(3333, trace);
+  window.trace = trace;
   return <BaseLayout />;
 };
 

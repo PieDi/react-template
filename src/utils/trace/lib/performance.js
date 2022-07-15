@@ -196,13 +196,6 @@ function observeNavigationTiming() {
 
   times.unloadTime = t.unloadEventEnd - t.unloadEventStart; // 上一个页面的卸载耗时
 
-  console.log(4444, normalizePerformanceRecord({
-    ...times,
-    eventType: 'performance',
-    eventId: 'page',
-    url: window.location.href,
-  }));
-
   emit(normalizePerformanceRecord({
     ...times,
     eventType: 'performance',
@@ -220,7 +213,6 @@ function init({ performanceFirstResource, performanceCore }) {
     if (supported.getEntriesByType && performanceCore) observeResource();
   } else {
     window.addEventListener('load', () => {
-      console.log(99999);
       if (supported.performance && performanceFirstResource) observeNavigationTiming();
       if (supported.getEntriesByType && performanceCore) observeResource();
     });

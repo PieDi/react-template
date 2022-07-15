@@ -112,7 +112,6 @@ function emit(e, flush = false) {
   refreshSession();
   debug('receive event, waiting to send', e);
   clearTimeout(timer);
-  console.log(22222, flush);
   // 满足最大记录数,立即发送,否则定时发送(flush为true代表立即发送)
   events.length >= MAX_CACHE_LEN || flush
     ? send()

@@ -3,6 +3,7 @@ import PV from './lib/pv';
 import HTTP from './lib/http-request';
 import ERROR from './lib/err';
 import PERFORMANCE from './lib/performance';
+import EVENT from './lib/event';
 
 const transitionOptions = (_options, options) => {
   const {
@@ -84,6 +85,7 @@ const traceInit = (options = {}) => {
   HTTP.init(initOptions);
   ERROR.init(initOptions);
   PERFORMANCE.init(initOptions);
+  EVENT.init(initOptions);
 };
 
 /* eslint no-constructor-return: "error" */
@@ -98,6 +100,7 @@ export default class Trace {
       this.traceError = ERROR.traceError;
       this.tracePerformance = PERFORMANCE.tracePerformance;
       this.tracePageView = PV.tracePageView;
+      this.traceCustomEvent = EVENT.traceCustomEvent;
       Trace.instance = this;
     }
   }
