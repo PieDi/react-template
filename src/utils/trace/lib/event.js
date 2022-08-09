@@ -250,7 +250,6 @@ function clickCollection() {
  */
 function dwellCollector(eventUnload) {
   const config = new RequestTemplate({ eventType: 'dwell' });
-  console.log(44444, config, eventUnload);
   window.addEventListener('load', () => { // 加载完成事件
     config.entryTime = Date.now();
   }, true);
@@ -276,7 +275,6 @@ function dwellCollector(eventUnload) {
 }
 function init({ eventCore, eventUnload }) {
   if (!eventCore && !eventUnload) return;
-  console.log(44444, eventCore);
 
   if (eventCore) clickCollection();
   dwellCollector(eventUnload);

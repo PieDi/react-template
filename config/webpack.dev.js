@@ -16,8 +16,10 @@ const devServer = {
   hot: true,
   port: PORT,
   host: '127.0.0.1',
+
   compress: true,
   open: true,
+  historyApiFallback: true,
   proxy: {
     '/api': {
       target: 'http://localhost:8000',
@@ -30,15 +32,15 @@ const devServer = {
 const devConfig = webpackMerge.merge(baseConfig, {
   mode: 'development',
   devServer,
-  devtool: false,
+  devtool: 'source-map',
   plugins: [// 配置插件的节点
     new webpack.HotModuleReplacementPlugin(), // new 一个热更新的模块对象
-    new webpack.SourceMapDevToolPlugin({
-      exclude: /node_modules/,
-      filename: 'sourcemaps/[file].map',
-      module: true,
-      columns: true,
-    }),
+    // new webpack.SourceMapDevToolPlugin({
+    //   exclude: /node_modules/,
+    //   filename: 'sourcemaps/[file].map',
+    //   module: true,
+    //   columns: true,
+    // }),
     new StyleLintPlugin({
       context: 'src',
       configFile: path.resolve(process.cwd(), './.stylelintrc.js'), // 指定 stylelint 配置的文件

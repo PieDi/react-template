@@ -1,6 +1,7 @@
 import React, { Suspense } from 'react';
 import {
-  BrowserRouter,
+  // BrowserRouter,
+  HashRouter as Router,
   useRoutes,
 } from 'react-router-dom';
 import Trace from './utils/trace';
@@ -19,15 +20,14 @@ const App = () => {
     error: true,
   });
   window.trace = trace;
-  console.log(33333, Routers);
   return (
-    <BrowserRouter>
+    <Router>
       <BaseLayout>
         <Suspense fallback={<div>loading...</div>}>
           <Routers />
         </Suspense>
       </BaseLayout>
-    </BrowserRouter>
+    </Router>
   );
 };
 
