@@ -8,6 +8,7 @@ import Trace from './utils/trace';
 import routes from './routes';
 import BaseLayout from './components/baseLayout';
 import './static/style/normalize.css';
+import 'antd/dist/antd.css';
 
 const Routers = () => useRoutes(routes);
 const App = () => {

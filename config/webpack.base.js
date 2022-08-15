@@ -27,7 +27,28 @@ module.exports = {
         use: [
           {
             loader: 'babel-loader',
-            options: { presets: ['@babel/env', '@babel/preset-react'] },
+            options: {
+              presets: ['@babel/env', '@babel/preset-react'],
+              plugins: [
+                //   [
+                //   require.resolve('babel-plugin-named-asset-import'),
+                //   {
+                //     loaderMap: {
+                //       svg: {
+                //         ReactComponent:
+                //           '@svgr/webpack?-svgo,+titleProp,+ref![path]',
+                //       },
+                //     },
+                //   },
+                // ],
+                [
+                  require.resolve('babel-plugin-import'), // 导入 import 插件
+                  {
+                    libraryName: 'antd', // 暴露antd
+                    style: true,
+                  },
+                ]],
+            },
           },
           'ts-loader',
         ],
@@ -104,6 +125,7 @@ module.exports = {
       filename: '[name].[contenthash:8].css',
       chunkFilename: '[id].[contenthash:8].css',
     }),
+
   ],
   cache: {
     type: 'filesystem',

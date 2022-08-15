@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button } from 'antd';
 import { useNavigate } from 'react-router';
 import Skeleton from '@/components/skeleton';
 import style from './index.module.less';
@@ -8,12 +9,15 @@ export const Home = () => {
   return (
     <Skeleton isVisible={false}>
       <div className={style.content}>
-        <div
-          className={style.item}
-          onClick={() => { navigate('/flow'); }}
+        <Button
+          type="link"
+          // className={style.item}
+          onClick={() => {
+            navigate('/flow');
+          }}
         >
           zz
-        </div>
+        </Button>
         <div>sssss</div>
       </div>
       <div>
