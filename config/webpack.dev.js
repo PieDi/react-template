@@ -16,7 +16,6 @@ const devServer = {
   hot: true,
   port: PORT,
   host: '127.0.0.1',
-
   compress: true,
   open: true,
   historyApiFallback: true,
