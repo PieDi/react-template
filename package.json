@@ -10,11 +10,14 @@
     "lint:style": "stylelint **/*.{css,less} --fix"
   },
   "dependencies": {
+    "@types/shortid": "^0.0.29",
     "antd": "^4.22.4",
+    "jsplumb": "^2.15.6",
     "lodash": "^4.17.21",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router": "^6.3.0"
+    "react-router": "^6.3.0",
+    "shortid": "^2.2.16"
   },
   "devDependencies": {
     "@babel/cli": "^7.17.10",
@@ -42,7 +45,7 @@
     "eslint-plugin-import": "^2.25.3",
     "eslint-plugin-jsx-a11y": "^6.5.1",
     "eslint-plugin-react": "^7.28.0",
-    "eslint-plugin-react-hooks": "^4.3.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
     "html-loader": "^3.1.2",
     "html-webpack-plugin": "^5.5.0",
     "less": "^4.1.3",

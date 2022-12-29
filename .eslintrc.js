@@ -20,6 +20,7 @@ module.exports = {
     'react',
     '@typescript-eslint',
     'html',
+    'react-hooks',
   ],
   rules: {
     indent: ['error', 2],
@@ -50,6 +51,34 @@ module.exports = {
     ],
     'react/jsx-props-no-spreading': 'off',
     'max-classes-per-file': ['error', 5],
+    '@typescript-eslint/no-unused-vars': [
+      'error',
+      {
+        args: 'all',
+        argsIgnorePattern: '^_',
+      },
+    ],
+    'no-unused-vars': [
+      'error',
+      {
+        args: 'all',
+        argsIgnorePattern: '^_',
+      },
+    ],
+    'no-param-reassign': 'off',
+    // 检查 Hooks 的使用规则
+    'react-hooks/rules-of-hooks': 'error',
+    // 检查依赖项的声明
+    'react-hooks/exhaustive-deps': 'warn',
+    'jsx-a11y/no-noninteractive-tabindex': [
+      'off',
+      {
+        tags: [],
+        roles: ['tabpanel'],
+        allowExpressionValues: true,
+      },
+    ],
+    '@html-eslint/no-positive-tabindex': 'off',
   },
   settings: {
     'import/extensions': ['.js', '.jsx', '.ts', '.tsx'],

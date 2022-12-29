@@ -8,7 +8,7 @@ const BaseLayout = (props:Props) => {
   const { children } = props;
   return (
     <div className={style.base_layout}>
-      <div>{children}</div>
+      {children}
     </div>
   );
 };
