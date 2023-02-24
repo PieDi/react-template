@@ -13,7 +13,10 @@ const genRandomName = () => {
 
 const useName = () => {
   // 每点一次按钮，genRandomName 就会执行一次
-  const [name, setName] = useState(genRandomName());
+  const [name, setName] = useState(() => {
+    console.log('in genRandomName', Math.random());
+    return `${Math.random()}`;
+  });
   console.log(33333, name);
   return {
     name,
