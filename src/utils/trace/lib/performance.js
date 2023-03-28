@@ -149,6 +149,7 @@ function observeNavigationTiming() {
   const times = {};
   const { performance } = window;
   let t = performance.timing;
+  // PerformanceNavigationTiming
 
   times.fmp = 0; // 首屏时间 (渲染节点增量最大的时间点)
   if (supported.getEntriesByType) {

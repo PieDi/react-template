@@ -16,7 +16,7 @@ const prodConfig = {
   },
   plugins: [
     new CompressionPlugin({
-      filename: '[path].gz[query]',
+      filename: '[name].gz',
       algorithm: 'gzip',
       test: /\.js$|\.css$/,
       threshold: 10240, // 对超过10k的数据进行压缩

@@ -6,6 +6,7 @@ module.exports = {
   extends: [
     'plugin:react/recommended',
     'airbnb',
+    // 'plugin:prettier/recommended',
     // 'airbnb-typescript',
   ],
   parser: '@typescript-eslint/parser',
@@ -23,7 +24,6 @@ module.exports = {
     'react-hooks',
   ],
   rules: {
-    indent: ['error', 2],
     'no-unused-expressions': 'off',
     'react/prop-types': 'off',
     'react/react-in-jsx-scope': 'off',
@@ -79,6 +79,7 @@ module.exports = {
       },
     ],
     '@html-eslint/no-positive-tabindex': 'off',
+    semi: 0,
   },
   settings: {
     'import/extensions': ['.js', '.jsx', '.ts', '.tsx'],

@@ -17,7 +17,8 @@ module.exports = {
   output: {
     path: path.resolve(process.cwd(), './dist'),
     filename: '[name].[contenthash].js',
-    publicPath: '/',
+    // publicPath: '/',
+    chunkFilename: '[id].[hash:8].js',
   },
   module: {
     rules: [
@@ -30,17 +31,6 @@ module.exports = {
             options: {
               presets: ['@babel/env', '@babel/preset-react'],
               plugins: [
-                //   [
-                //   require.resolve('babel-plugin-named-asset-import'),
-                //   {
-                //     loaderMap: {
-                //       svg: {
-                //         ReactComponent:
-                //           '@svgr/webpack?-svgo,+titleProp,+ref![path]',
-                //       },
-                //     },
-                //   },
-                // ],
                 [
                   require.resolve('babel-plugin-import'), // 导入 import 插件
                   {
